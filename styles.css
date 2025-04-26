@@ -1,6 +1,7 @@
 
 :root{
     --bg-color: #E6DFD7;
+    --highlight: #3d5a83;
     --container-width: 400px;
     --round-button-width :100px;
     --card-width:500px;
@@ -22,7 +23,7 @@ body{
     background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 3rem;
     place-items: center;
 }
 
@@ -73,6 +74,44 @@ body{
 
 .github:hover span{
     color:#8E9CA5;
+}
+
+.card-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 0px;
+}
+
+.settings-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-inline: 5px;
+  color: #8E9CA5;
+}
+
+.settings-container p {
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  transition: color 0.3s, font-size 0.3s;
+  user-select: none;
+}
+
+.settings-container p.updated {
+  color: var(--highlight); /* Change color when updated */
+}
+
+.setting-btn{
+  cursor: pointer;
+}
+
+.setting-btn:hover{
+  color: var(--highlight)
 }
 
 .flashcard {
@@ -162,12 +201,6 @@ body{
     background: #424953;
   }
   
-  #progress {
-    margin-top: 10px;
-    font-size: 1rem;
-  }
-
-
 @keyframes pulse{
     0%{
      transform: scale(0.5);

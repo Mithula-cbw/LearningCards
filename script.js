@@ -16,6 +16,15 @@ const flashcards = [
     cardFront.textContent = flashcards[currentIndex].question;
     cardBack.textContent = flashcards[currentIndex].answer;
     progress.textContent = `Card ${currentIndex + 1} of ${flashcards.length}`;
+
+    progress.textContent = `Card ${currentIndex + 1} of ${flashcards.length}`;
+
+  const settingsProgress = document.getElementById('progress');
+  if (settingsProgress) {
+    settingsProgress.textContent = `${currentIndex + 1} of ${flashcards.length}`;
+  }
+  settingsProgress.classList.add('updated');
+  setTimeout(() => settingsProgress.classList.remove('updated'), 300);
   }
   
   function goToCard(newIndex) {
@@ -43,11 +52,7 @@ const flashcards = [
   document.getElementById('prev').addEventListener('click', () => {
     goToCard(currentIndex - 1);
   });
-  
-  flashcard.addEventListener('click', () => {
-    document.getElementById('flip').click();
-  });
-  
+   
   // Initialize
   updateCard();
   
