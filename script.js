@@ -7,10 +7,8 @@ const flashcards = [
   { subject: "History", question: "Who was the first president of the United States?", answer: "George Washington" }
 ];
 
-// Manually define subjects
-const subjects = ["Geography", "Common Knowledge", "History"];
-let currentSubjects = ["Geography"];
-
+// Initialize with default subjects (Geography and Common Knowledge selected)
+let currentSubjects = [];
 let currentIndex = 0;
 
 const flashcard = document.getElementById('flashcard');
@@ -33,9 +31,6 @@ function updateCard() {
   cardBack.textContent = filteredCards[currentIndex].answer;
 
   progress.textContent = `${filteredCards[currentIndex].subject} - ${currentIndex + 1} of ${filteredCards.length}`;
-
-  progress.classList.add('updated');
-  setTimeout(() => progress.classList.remove('updated'), 300);
 }
 
 // Navigate to a specific card
@@ -48,7 +43,7 @@ function goToCard(newIndex) {
 }
 
 // Event listener for flipping the card
-document.getElementById('flashcard').addEventListener('click', () => {
+flashcard.addEventListener('click', () => {
   flashcard.classList.toggle('flipped');
 });
 
@@ -62,20 +57,14 @@ document.getElementById('prev').addEventListener('click', () => {
   goToCard(currentIndex - 1);
 });
 
-// Populate the subject filter dropdown with the subjects
-const subjectFilter = document.getElementById('subject-filter');
-subjects.forEach(subj => {
-  const option = document.createElement('option');
-  option.value = subj;
-  option.textContent = subj;
-  subjectFilter.appendChild(option);
-});
-
-// Handle subject filter changes
-subjectFilter.addEventListener('change', () => {
-  currentSubjects = Array.from(subjectFilter.selectedOptions).map(option => option.value);
-  currentIndex = 0;
-  updateCard();
+// Handle subject selection changes (multiple selections allowed)
+document.querySelectorAll('input[name="subject"]').forEach(input => {
+  input.addEventListener('change', () => {
+    // Get all checked checkboxes and update the currentSubjects array
+    currentSubjects = Array.from(document.querySelectorAll('input[name="subject"]:checked')).map(input => input.value);
+    currentIndex = 0; // Reset to the first card of the selected subjects
+    updateCard(); // Update the displayed card
+  });
 });
 
 // Initialize the first card display
