@@ -17,8 +17,6 @@ const flashcards = [
     cardBack.textContent = flashcards[currentIndex].answer;
     progress.textContent = `Card ${currentIndex + 1} of ${flashcards.length}`;
 
-    progress.textContent = `Card ${currentIndex + 1} of ${flashcards.length}`;
-
   const settingsProgress = document.getElementById('progress');
   if (settingsProgress) {
     settingsProgress.textContent = `${currentIndex + 1} of ${flashcards.length}`;
