@@ -1,11 +1,12 @@
 // Define the flashcards
 const flashcards = [
-  { subject: "Geography", question: "Capital of Japan?", answer: "Tokyo" },
-  { subject: "Geography", question: "Largest ocean?", answer: "Pacific Ocean" },
-  { subject: "Geography", question: "Continent with most countries?", answer: "Africa" },
-  { subject: "Common Knowledge", question: "Smallest country?", answer: "Vatican City" },
-  { subject: "History", question: "Who was the first president of the United States?", answer: "George Washington" }
+  { subject: "Geography", question: "Capital of Japan?", answer: "Tokyo", answered: false },
+  { subject: "Geography", question: "Largest ocean?", answer: "Pacific Ocean", answered: false },
+  { subject: "Geography", question: "Continent with most countries?", answer: "Africa", answered: false },
+  { subject: "Common Knowledge", question: "Smallest country?", answer: "Vatican City", answered: false },
+  { subject: "History", question: "Who was the first president of the United States?", answer: "George Washington", answered: false }
 ];
+
 
 // Initialize with default subjects (Geography and Common Knowledge selected)
 let currentSubjects = [];
@@ -18,9 +19,10 @@ const progress = document.getElementById('progress');
 
 // Get filtered flashcards based on the selected subjects
 function getFilteredFlashcards() {
-  if (currentSubjects.length === 0) return flashcards;
-  return flashcards.filter(card => currentSubjects.includes(card.subject));
+  if (currentSubjects.length === 0) return flashcards.filter(card => !card.answered);
+  return flashcards.filter(card => currentSubjects.includes(card.subject) && !card.answered);
 }
+
 
 // Update the card content
 function updateCard() {
@@ -38,9 +40,15 @@ function goToCard(newIndex) {
   const filteredCards = getFilteredFlashcards();
   if (filteredCards.length === 0) return;
 
-  currentIndex = (newIndex + filteredCards.length) % filteredCards.length;
-  updateCard();
+  
+  flashcard.classList.remove('flipped');
+  
+  setTimeout(() => {
+    currentIndex = (newIndex + filteredCards.length) % filteredCards.length;
+    updateCard();
+  }, 300);
 }
+
 
 // Event listener for flipping the card
 flashcard.addEventListener('click', () => {
