@@ -143,10 +143,17 @@ body{
     border-radius: 12px;
     box-shadow: 0 4px 8px #8e9ca563;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
     padding: 20px;
+  }
+
+  .card-subject{
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: #7e8c95c8;
   }
   
   .card-back {
@@ -179,6 +186,11 @@ body{
     padding: 20px;
     border: 2px solid black;
     z-index: 10;
+  }
+
+  #subject-filter {
+    width: 200px;
+    height: 100px; /* Make it taller so multiple options are visible */
   }
   
   .buttons {
