@@ -41,7 +41,27 @@
           </div>
     </div>
 
-    <div class="checkboxes">
+    <div class="popup" id="popup">
+      <div class="popup-content">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <h3>Choose your topics</h3>
+        <p id="Question-count">-- Questions adn answers for selected topics</p>
+        <div class="checkboxes" id="popup-checkboxes">
+          <label>
+            <input type="checkbox" name="subject" value="Geography" checked> Geography
+          </label>
+          <label>
+            <input type="checkbox" name="subject" value="History" checked> History
+          </label>
+          <label>
+            <input type="checkbox" name="subject" value="Common Knowledge" checked> Common Knowledge
+          </label>
+        </div>
+        <div class="done-btn-container" id="close-btn2"><button id="done-setting">Done</button></div>
+      </div>
+    </div>
+
+    <!-- <div class="checkboxes">
       <label>
         <input type="checkbox" name="subject" value="Geography" checked> Geography
       </label>
@@ -51,7 +71,7 @@
       <label>
         <input type="checkbox" name="subject" value="Common Knowledge" checked> Common Knowledge
       </label>
-    </div>
+    </div> -->
     
       <div class="buttons">
         <button id="prev">Previous</button>

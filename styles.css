@@ -2,6 +2,7 @@
 :root{
     --bg-color: #E6DFD7;
     --highlight: #3d5a83;
+    --text-color: #424953;
     --container-width: 400px;
     --round-button-width :100px;
     --card-width:500px;
@@ -45,7 +46,7 @@ body{
 }
 
 .title h1{
-    color: #424953;
+    color: var(--text-color);
     margin-top: 4rem;
    
 }
@@ -100,10 +101,6 @@ body{
   font-family: sans-serif;
   transition: color 0.3s, font-size 0.3s;
   user-select: none;
-}
-
-.settings-container p.updated {
-  color: var(--highlight); /* Change color when updated */
 }
 
 .setting-btn{
@@ -196,6 +193,68 @@ body{
   .buttons {
     margin-bottom: 10px;
   }
+
+  /* Popup box styles */
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none; /* hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Popup content box */
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    font-family: sans-serif;
+    color: var(--text-color);
+
+  }
+
+  #Question-count{
+    margin-top: 4px;
+    font-size: 14px;
+    color: #69707B;
+  }
+
+  input[type="checkbox"] {
+    accent-color: var(--highlight); /* green tick */
+  }
+  
+  /* Close button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Grid layout for checkboxes */
+  #popup-checkboxes {
+    display: grid;
+    gap: 15px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+  
+.done-btn-container{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-direction: row;
+}
   
   button {
     padding-block: 10px;
@@ -244,4 +303,18 @@ body{
     }
 
   
+}
+
+/* Two columns on desktop */
+@media (min-width: 600px) {
+  #popup-checkboxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* One column on mobile */
+@media (max-width: 599px) {
+  #popup-checkboxes {
+    grid-template-columns: 1fr;
+  }
 }

@@ -7,7 +7,30 @@ const flashcards = [
   { subject: "History", question: "Who was the first president of the United States?", answer: "George Washington", answered: false }
 ];
 
+const settingBtn = document.querySelector('.setting-btn');
+const popup = document.getElementById('popup');
+const closeBtn = document.getElementById('close-btn');
+const closeBtn2 = document.getElementById('close-btn2');
+const questionCount = document.getElementById('Question-count');
 
+settingBtn.addEventListener('click', () => {
+  popup.style.display = 'flex';
+});
+
+closeBtn.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
+closeBtn2.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
+// Optional: Click outside popup to close
+window.addEventListener('click', (e) => {
+  if (e.target === popup) {
+    popup.style.display = 'none';
+  }
+});
 // Initialize with default subjects (Geography and Common Knowledge selected)
 let currentSubjects = [];
 let currentIndex = 0;
@@ -33,6 +56,7 @@ function updateCard() {
   cardBack.textContent = filteredCards[currentIndex].answer;
 
   progress.textContent = `${filteredCards[currentIndex].subject} - ${currentIndex + 1} of ${filteredCards.length}`;
+  questionCount.textContent = `Available questions: ${filteredCards.length} `;
 }
 
 // Navigate to a specific card
