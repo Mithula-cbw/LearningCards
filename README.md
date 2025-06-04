@@ -6,12 +6,12 @@ Perfect for quick study sessions, group practice, or building your own learning 
 
 ## 🎥 Project Demo
 
-[![Watch on YouTube](https://img.shields.io/badge/Watch%20Demo-YouTube-red?logo=youtube&style=for-the-badge)](https://youtu.be/0CtgzJ361Q4)
-
+[![Watch on YouTube](https://img.shields.io/badge/Watch%20Demo-YouTube-red?logo=youtube&style=for-the-badge)](https://youtu.be/Vm1sjeTmy4U)
 
 ## 📸 Demo Preview
 
-<img src="preview/learningcards-demo.png" alt="LearningCards Preview" width="600"/>
+<img src="./learningcards-demo.png" alt="LearningCards Preview" width="800"/>
+
 
 
 
