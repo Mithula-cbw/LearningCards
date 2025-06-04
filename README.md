@@ -10,7 +10,7 @@ Perfect for quick study sessions, group practice, or building your own learning 
 
 ## 📸 Demo Preview
 
-<img src="./learningcards-demo.png" alt="LearningCards Preview" width="800"/>
+<img src="./LearningCards-img-1.png" alt="LearningCards Preview" width="800"/>
 
 
 
